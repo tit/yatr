@@ -1,16 +1,21 @@
-<h1>YaTr</h1>
+# YaTr
 
-<h2>Description</h2>
-Extended String Class for translate with API Yandex
+## Description
+Extended String Class for translate with [Yandex.Translate](http://translate.yandex.ru/).  
+Show aviable languages on [API Yandex.Translate](http://api.yandex.ru/translate/).  
 
-<h2>Usage</h2>
-<pre>
-require "yatr"
+## Examples
 
-puts "hello".to_ru # => привет
-puts "hello".to_en # => hello
-puts "hello".to_pl # => hello
-puts "hello".to_uk # => привiт
-puts "hello".to_de # => hallo
-puts "hello".to_tr # => merhaba
-</pre>
+    require "yatr"
+
+    # Valide translate from to
+    puts "привет".translate "ru", "en" # => hi
+
+    # Valide translate to
+    puts "привет".translate "en" # => hi
+
+    # Invalide translate from to
+    puts "привет".translate "foo" "bar" # => привет
+
+    # Invalide translate to
+    puts "привет".translate "foo" # => привет
