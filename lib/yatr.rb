@@ -18,12 +18,12 @@ class String
     end
     request = URI.escape "http://translate.yandex.net/api/v1/tr.json/translate?text=#{self}&lang=#{lang}"
     begin
-      respons = open(request)
+      response = open(request)
     rescue OpenURI::HTTPError
       return self
     end
     # Integer code, String lang, Array text
-    json_hash = JSON.parse respons.read
+    json_hash = JSON.parse response.read
     code = json_hash["code"].to_i
     text = json_hash["text"].to_s
     return text if code == 200
