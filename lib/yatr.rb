@@ -18,7 +18,7 @@ class String
     end
     request = URI.escape "http://translate.yandex.net/api/v1/tr.json/translate?text=#{self}&lang=#{lang}"
     begin
-      response = open(request)
+      response = open request
     rescue OpenURI::HTTPError
       return self
     end
